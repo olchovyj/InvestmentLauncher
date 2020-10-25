@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonCancel = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBoxTicker = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,27 +38,18 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxEndDate = new System.Windows.Forms.TextBox();
             this.dataGridViewPortfolio = new System.Windows.Forms.DataGridView();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPortfolio)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonCancel
-            // 
-            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(22, 778);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 0;
-            this.buttonCancel.Text = "&Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(493, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(985, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(459, 776);
+            this.dataGridView1.Size = new System.Drawing.Size(312, 394);
             this.dataGridView1.TabIndex = 1;
             // 
             // textBoxTicker
@@ -129,17 +119,36 @@
             // dataGridViewPortfolio
             // 
             this.dataGridViewPortfolio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPortfolio.Location = new System.Drawing.Point(226, 22);
+            this.dataGridViewPortfolio.Location = new System.Drawing.Point(200, 52);
             this.dataGridViewPortfolio.Name = "dataGridViewPortfolio";
-            this.dataGridViewPortfolio.Size = new System.Drawing.Size(240, 150);
+            this.dataGridViewPortfolio.Size = new System.Drawing.Size(746, 394);
             this.dataGridViewPortfolio.TabIndex = 10;
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(16, 208);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonAdd.TabIndex = 11;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(197, 22);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Portfolio";
             // 
             // FormStartup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(1309, 813);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.dataGridViewPortfolio);
             this.Controls.Add(this.textBoxEndDate);
             this.Controls.Add(this.label4);
@@ -150,7 +159,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxTicker);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.buttonCancel);
             this.Name = "FormStartup";
             this.Text = "InvestmentLauncher";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -161,8 +169,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBoxTicker;
         private System.Windows.Forms.Label label1;
@@ -173,6 +179,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxEndDate;
         private System.Windows.Forms.DataGridView dataGridViewPortfolio;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Label label5;
     }
 }
 
