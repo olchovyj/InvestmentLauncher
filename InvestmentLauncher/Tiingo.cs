@@ -17,9 +17,9 @@ namespace InvestmentLauncher
 
         }
 
-        public string HistPricesJSON()
+        public string HistPricesJSON(string ticker, DateTime startDate, DateTime endDate)
         {
-            string url = "https://api.tiingo.com/api/test/";
+            string url = "https://api.tiingo.com/tiingo/daily/"+ticker+"/prices?startDate="+startDate.ToString("yyyy-M-d")+"&endDate="+endDate.ToString("yyyy-M-d");
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.ContentType = "application/json";
             request.Headers.Add("Authorization:Token " + Resources.TiingoKey);

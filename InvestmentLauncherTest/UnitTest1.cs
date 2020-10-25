@@ -15,7 +15,11 @@ namespace InvestmentLauncherTest
         [TestMethod]
         public void GetJSONTest()
         {
-            Assert.IsTrue(ti.HistPricesJSON().Length > 10);
+            DateTime startDate = Convert.ToDateTime("1/5/2010");
+            DateTime endDate = Convert.ToDateTime("1/12/2010");
+            string result = ti.HistPricesJSON("PG", startDate, endDate);
+            Console.WriteLine(result);
+            Assert.IsTrue(result.Length > 10);
         }
     }
 }
