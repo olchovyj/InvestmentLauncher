@@ -15,6 +15,9 @@ namespace InvestmentLauncher
         public FormStartup()
         {
             InitializeComponent();
+            Tiingo ti = new Tiingo();
+            DataTable dt = ti.HistPricesDT("PG", Convert.ToDateTime("10/18/20"), Convert.ToDateTime("10/25/20"));
+            dataGridView1.DataSource = dt;
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
