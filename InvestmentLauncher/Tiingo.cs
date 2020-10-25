@@ -1,6 +1,8 @@
 ﻿using InvestmentLauncher.Properties;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -16,6 +18,41 @@ namespace InvestmentLauncher
         public Tiingo()
         {
 
+        }
+
+        public DataTable HistPricesDT(string ticker, DateTime startDate, DateTime endDate)
+        {
+            DataTable dt = new DataTable();
+            DataColumn dateCol = dt.Columns.Add("Date");
+            DataColumn closeCol = dt.Columns.Add("Close");
+            DataColumn highCol = dt.Columns.Add("High");
+            DataColumn  lowCol = dt.Columns.Add("Low");
+            DataColumn  openCol = dt.Columns.Add("Open");
+            DataColumn  volumeCol = dt.Columns.Add("Volume");
+            DataColumn  adjCloseCol = dt.Columns.Add("adjClose");
+            DataColumn  adjHighCol = dt.Columns.Add("adjHigh");
+            DataColumn  adjLowCol = dt.Columns.Add("adjLow");
+            DataColumn  adjOpenCol = dt.Columns.Add("adjOpen");
+            DataColumn  divCashCol = dt.Columns.Add("divCash");
+            DataColumn  splitFactorCol = dt.Columns.Add("splitFactor");
+        StockHistory sh = (StockHistory)JsonConvert.DeserializeObject(HistPricesJSON(ticker, startDate, endDate));
+            foreach (StockHistory.History h in sh.lh)
+            {
+                DataRow dr = dt.Rows.Add();
+                dr[dateCol] = h.date;
+                dr[closeCol] = h.close;
+                dr[highCol] = h.high;
+                dr[lowCol] = h.low;
+                dr[openCol] = h.open;
+                dr[volumeCol] = h.volume;
+                dr[adjCloseCol] = h.adjClose;
+                dr[adjHighCol] = h.adjHigh;
+                dr[adjLowCol] = h.adjLow;
+                dr[adjOpenCol] = h.adjOpen;
+                dr[divCashCol] = h.divCash;
+                dr[splitFactorCol] = h.splitFactor;
+            }
+            return dt;
         }
 
         public string HistPricesJSON(string ticker, DateTime startDate, DateTime endDate)
@@ -36,14 +73,14 @@ namespace InvestmentLauncher
                 }
             }
         }
-        public class StockHistoryJSON
+        public class StockHistory
         {
-            public List<StockJSON> lsj;
-            public StockHistoryJSON()
+            public List<History> lh;
+            public StockHistory()
             {
-                lsj = new List<StockJSON>();
+                lh = new List<History>();
             }
-            public class StockJSON
+            public class History
             {
                 public string date;
                 public string close;

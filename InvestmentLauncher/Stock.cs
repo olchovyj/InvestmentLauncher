@@ -18,11 +18,5 @@ namespace InvestmentLauncher
         {
             ticker = ticker_;
         }
-        public DataTable HistoricalPricesDT(DateTime startDate, DateTime endDate)
-        {
-            DataTable dt = new DataTable();
-
-            return dt;
-        }
     }
 }
