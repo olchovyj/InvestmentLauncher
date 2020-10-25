@@ -12,12 +12,6 @@ namespace InvestmentLauncherTest
         {
 
         }
-        [TestMethod]
-        public void HistoricalPricesDTTest()
-        {
-            Stock stk = new Stock("PG");
-            Assert.IsInstanceOfType(stk.HistoricalPricesDT(DateTime.Now, DateTime.Now), typeof(DataTable));
-                        
-        }
+
     }
 }
