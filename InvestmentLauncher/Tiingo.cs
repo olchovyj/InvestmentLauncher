@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -33,6 +34,29 @@ namespace InvestmentLauncher
                         return sr.ReadToEnd();
                     }
                 }
+            }
+        }
+        public class StockHistoryJSON
+        {
+            public List<StockJSON> lsj;
+            public StockHistoryJSON()
+            {
+                lsj = new List<StockJSON>();
+            }
+            public class StockJSON
+            {
+                public string date;
+                public string close;
+                public string high;
+                public string low;
+                public string open;
+                public string volume;
+                public string adjClose;
+                public string adjHigh;
+                public string adjLow;
+                public string adjOpen;
+                public string divCash;
+                public string splitFactor;
             }
         }
     }
