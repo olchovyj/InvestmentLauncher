@@ -35,7 +35,9 @@ namespace InvestmentLauncher
             DataColumn  adjOpenCol = dt.Columns.Add("adjOpen");
             DataColumn  divCashCol = dt.Columns.Add("divCash");
             DataColumn  splitFactorCol = dt.Columns.Add("splitFactor");
-        StockHistory sh = (StockHistory)JsonConvert.DeserializeObject(HistPricesJSON(ticker, startDate, endDate));
+            string jsonOutput = HistPricesJSON(ticker, startDate, endDate);
+            StockHistory sh = new StockHistory();
+            sh.lh = JsonConvert.DeserializeObject<List<StockHistory.History>>(jsonOutput);
             foreach (StockHistory.History h in sh.lh)
             {
                 DataRow dr = dt.Rows.Add();
@@ -75,11 +77,7 @@ namespace InvestmentLauncher
         }
         public class StockHistory
         {
-            public List<History> lh;
-            public StockHistory()
-            {
-                lh = new List<History>();
-            }
+            public List<History> lh = new List<History>();
             public class History
             {
                 public string date;
