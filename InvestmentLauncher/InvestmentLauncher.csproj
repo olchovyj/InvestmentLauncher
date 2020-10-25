@@ -55,6 +55,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stock.cs" />
+    <Compile Include="Tiingo.cs" />
     <EmbeddedResource Include="FormStartup.resx">
       <DependentUpon>FormStartup.cs</DependentUpon>
     </EmbeddedResource>
